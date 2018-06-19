@@ -24,7 +24,35 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<mongo-basic-address>localhost:27017</mongo-basic-address>
+				<mongo-basic-user>gwego</mongo-basic-user>
+				<mongo-basic-pwd>123456</mongo-basic-pwd>
+				<mongo-basic-dbname>basic</mongo-basic-dbname>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<mongo-basic-address>localhost:27017</mongo-basic-address>
+				<mongo-basic-user>gwego</mongo-basic-user>
+				<mongo-basic-pwd>123456</mongo-basic-pwd>
+				<mongo-basic-dbname>basic</mongo-basic-dbname>
+			</properties>
+		</profile>
+	</profiles>
 	<dependencies>
+		<dependency>
+			<groupId>com.gwego</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
