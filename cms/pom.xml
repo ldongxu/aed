@@ -28,9 +28,9 @@
 		<profile>
 			<id>local</id>
 			<properties>
-				<mongo-basic-address>localhost:27017</mongo-basic-address>
+				<mongo-basic-address>127.0.0.1:27017</mongo-basic-address>
 				<mongo-basic-user>gwego</mongo-basic-user>
-				<mongo-basic-pwd>123456</mongo-basic-pwd>
+				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
 				<mongo-basic-dbname>basic</mongo-basic-dbname>
 			</properties>
 			<activation>
@@ -40,9 +40,9 @@
 		<profile>
 			<id>release</id>
 			<properties>
-				<mongo-basic-address>localhost:27017</mongo-basic-address>
+				<mongo-basic-address>127.0.0.1:27017</mongo-basic-address>
 				<mongo-basic-user>gwego</mongo-basic-user>
-				<mongo-basic-pwd>123456</mongo-basic-pwd>
+				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
 				<mongo-basic-dbname>basic</mongo-basic-dbname>
 			</properties>
 		</profile>

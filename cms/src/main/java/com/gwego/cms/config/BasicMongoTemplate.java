@@ -10,14 +10,12 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * @author liudongxu06
  * @date 2018/6/19
  */
 @Configuration
-@EnableMongoRepositories(basePackages = "com.gwego.cms.repository",mongoTemplateRef = "basicMongo")
 public class BasicMongoTemplate {
     @Autowired
     @Qualifier("basicMongoProperties")
