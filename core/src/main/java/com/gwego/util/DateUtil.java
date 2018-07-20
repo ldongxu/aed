@@ -1,6 +1,8 @@
 package com.gwego.util;
 
-import com.alibaba.druid.util.StringUtils;
+
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

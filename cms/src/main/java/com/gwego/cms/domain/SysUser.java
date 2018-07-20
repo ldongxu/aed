@@ -15,6 +15,7 @@ public class SysUser extends BaseBean {
     private String userName;
     @NotBlank
     private String password;
+
     private String mobile;
     private Date createTime;
     private Byte status;
