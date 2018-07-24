@@ -49,11 +49,11 @@
 		</profile>
 	</profiles>
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>com.gwego</groupId>-->
-			<!--<artifactId>core</artifactId>-->
-			<!--<version>1.0-SNAPSHOT</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>com.gwego</groupId>
+			<artifactId>core</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -76,6 +76,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -89,6 +95,7 @@
 				</includes>
 			</resource>
 		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
