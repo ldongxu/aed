@@ -14,11 +14,13 @@ import org.apache.shiro.subject.PrincipalCollection;
  * @date 2018/7/24
  */
 public class MyShiroRealm extends AuthorizingRealm{
+    //权限授权
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return null;
     }
 
+    //登陆认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String account = (String) authenticationToken.getPrincipal();
