@@ -1,8 +1,8 @@
-
+[
 	{
-		"name": "user_cache",
-		"host": "${redis-user_cache}",
-		"port": "${redis-user_cache-port}",
+		"name": "default",
+		"host": "120.0.0.1",
+		"port": "6379",
 		"_password": "",
 		"_maxTotal": "这种对象最多可实例化多少个",
 		"maxTotal": 1000,
@@ -14,3 +14,4 @@
 		"maxWait": 3000,
 		"testOnBorrow": true
 	}
+]

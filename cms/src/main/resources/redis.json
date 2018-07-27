@@ -1,9 +1,9 @@
 
 	{
 		"name": "default",
-		"host": "${redis-user_cache}",
-		"port": "${redis-user_cache-port}",
-		"_password": "",
+		"host": "${redis-host}",
+		"port": "${redis-port}",
+		"password": "${redis-password}",
 		"_maxTotal": "这种对象最多可实例化多少个",
 		"maxTotal": 1000,
 		"_maxIdle": "池里面最多有多少个（池里面的是空闲的）",

@@ -33,6 +33,10 @@
 				<mongo-basic-user>gwego</mongo-basic-user>
 				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
 				<mongo-basic-dbname>basic</mongo-basic-dbname>
+
+				<redis-host>127.0.0.1</redis-host>
+				<redis-port>6379</redis-port>
+				<redis-password>123</redis-password>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -45,6 +49,10 @@
 				<mongo-basic-user>gwego</mongo-basic-user>
 				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
 				<mongo-basic-dbname>basic</mongo-basic-dbname>
+
+				<redis-host>127.0.0.1</redis-host>
+				<redis-port>6379</redis-port>
+				<redis-password>123</redis-password>
 			</properties>
 		</profile>
 	</profiles>
@@ -76,6 +84,11 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.crazycake</groupId>
+			<artifactId>shiro-redis</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 

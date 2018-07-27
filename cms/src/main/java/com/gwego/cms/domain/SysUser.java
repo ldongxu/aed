@@ -10,7 +10,7 @@ import java.util.Date;
 public class SysUser extends BaseBean {
 
     @NotBlank
-    private String account;
+    private String account;//手机号做账号
     @NotBlank
     private String userName;
     @NotBlank

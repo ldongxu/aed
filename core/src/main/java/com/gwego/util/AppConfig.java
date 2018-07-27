@@ -8,12 +8,11 @@ import com.typesafe.config.ConfigFactory;
  * <p>
  * Created by 刘东旭 on 2017/6/7.
  */
-public class ConfigUtil {
+public class AppConfig {
     private final static Config config;
 
     static {
-        config = ConfigFactory.load("*.conf");
-
+        config = ConfigFactory.load("app.conf");
     }
 
     public static String getString(String var) {
@@ -24,8 +23,5 @@ public class ConfigUtil {
         return config;
     }
 
-    public static void main(String[] args) {
-        System.out.println(config.getString("redis.host"));
-        System.out.println(config.getString("spring.data.mongodb.basic.uri"));
-    }
+
 }
