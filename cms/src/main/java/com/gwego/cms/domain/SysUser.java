@@ -1,6 +1,9 @@
 package com.gwego.cms.domain;
 
+import com.gwego.constants.Constants;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 /**
@@ -10,12 +13,13 @@ import java.util.Date;
 public class SysUser extends BaseBean {
 
     @NotBlank
+    @Pattern(regexp = Constants.MOBILE_REGEX,message = "手机号码格式不正确")
     private String account;//手机号做账号
     @NotBlank
     private String userName;
     @NotBlank
     private String password;
-
+    @Pattern(regexp = Constants.MOBILE_REGEX,message = "手机号码格式不正确")
     private String mobile;
     private Date createTime;
     private Byte status;
