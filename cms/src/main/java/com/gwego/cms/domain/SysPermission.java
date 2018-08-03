@@ -1,5 +1,7 @@
 package com.gwego.cms.domain;
 
+import java.util.Date;
+
 /**
  * @author liudongxu06
  * @date 2018/7/23
@@ -11,6 +13,8 @@ public class SysPermission extends BaseBean{
     private String permission; //权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
     private Long parentId; //父编号
     private String parentIds; //父编号列表
+    private String description;
+    private Date createTime;
     private Boolean available = Boolean.FALSE;
 
     public String getName() {
@@ -59,6 +63,22 @@ public class SysPermission extends BaseBean{
 
     public void setParentIds(String parentIds) {
         this.parentIds = parentIds;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Boolean getAvailable() {

@@ -79,14 +79,13 @@ public class CipherUtil {// 十六进制下数字到字符的映射数组
 
 
     public static void main(String[] args) {
-        String pwd1 = "10288149";
+        String pwd1 = "admin";
         String pwd2 = "";
         CipherUtil cipher = new CipherUtil();
         System.out.println("未加密的密码:" + pwd1);
         //将123加密
         pwd2 = cipher.generatePassword(pwd1);
         System.out.println("加密后的密码:" + pwd2);
-
         System.out.print("验证密码是否下确:");
         if (cipher.validatePassword(pwd2, pwd1)) {
             System.out.println("正确");
