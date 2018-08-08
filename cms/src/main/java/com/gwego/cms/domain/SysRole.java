@@ -1,5 +1,7 @@
 package com.gwego.cms.domain;
 
+import java.util.List;
+
 /**
  * @author liudongxu06
  * @date 2018/7/23
@@ -8,6 +10,8 @@ public class SysRole extends BaseBean{
     private String role;
     private String description;
     private Boolean available = Boolean.FALSE;
+
+    private List<String> permissionIds;
 
     public String getRole() {
         return role;
@@ -31,5 +35,13 @@ public class SysRole extends BaseBean{
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public List<String> getPermissionIds() {
+        return permissionIds;
+    }
+
+    public void setPermissionIds(List<String> permissionIds) {
+        this.permissionIds = permissionIds;
     }
 }

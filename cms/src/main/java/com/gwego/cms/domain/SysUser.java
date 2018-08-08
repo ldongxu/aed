@@ -5,6 +5,7 @@ import com.gwego.constants.Constants;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author liudongxu06
@@ -23,6 +24,8 @@ public class SysUser extends BaseBean {
     private String mobile;
     private Date createTime;
     private Byte status;
+
+    private List<String> roleIds;
 
     public String getAccount() {
         return account;
@@ -70,5 +73,13 @@ public class SysUser extends BaseBean {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    public List<String> getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(List<String> roleIds) {
+        this.roleIds = roleIds;
     }
 }
