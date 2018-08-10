@@ -6,14 +6,15 @@ import java.util.Date;
  * @author liudongxu06
  * @date 2018/7/23
  */
-public class SysPermission extends BaseBean{
+public class SysResource extends BaseBean{
     private String name;
     private ResourceType resourceType;
     private String url;//资源路径.
     private String permission; //权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
     private Long parentId; //父编号
-    private String parentIds; //父编号列表
+    private String parentIds; //父编号列表 parent_id表示父编号，parent_ids表示所有祖先编号；如0/1/2/表示其祖先是2、1、0；其中根节点父编号为0。
     private String description;
+    private Integer sort;
     private Date createTime;
     private Boolean available = Boolean.FALSE;
 
@@ -73,6 +74,14 @@ public class SysPermission extends BaseBean{
         this.description = description;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -90,6 +99,6 @@ public class SysPermission extends BaseBean{
     }
 
     public enum ResourceType{
-        menu,button;
+        MENU,BUTTON;
     }
 }
