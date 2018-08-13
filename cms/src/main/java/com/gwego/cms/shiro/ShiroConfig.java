@@ -34,6 +34,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 配置不会被拦截的链接 顺序判断
+        filterChainDefinitionMap.put("/","anon");
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/register","anon");
         //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了
@@ -87,6 +88,7 @@ public class ShiroConfig {
     public SessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(sessionDAO());
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
 //        sessionManager.setGlobalSessionTimeout(1800000); //session默认超时时间30分钟
         return sessionManager;
     }

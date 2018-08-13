@@ -1,16 +1,17 @@
-
-	{
-		"name": "default",
-		"host": "${redis-host}",
-		"port": "${redis-port}",
-		"password": "${redis-password}",
-		"_maxTotal": "这种对象最多可实例化多少个",
-		"maxTotal": 1000,
-		"_maxIdle": "池里面最多有多少个（池里面的是空闲的）",
-		"maxIdle": 400,
-		"_minIdle": "池里面最少有多少个（池里面的是空闲的）",
-		"minIdle": 20,
-		"_maxWait": "过多少毫秒超时 ",
-		"maxWait": 3000,
-		"testOnBorrow": true
-	}
+[
+  {
+    "name": "default",
+    "host": "${redis-host}",
+    "port": "${redis-port}",
+    "password": "${redis-password}",
+    "_maxTotal": "这种对象最多可实例化多少个",
+    "maxTotal": 1000,
+    "_maxIdle": "池里面最多有多少个（池里面的是空闲的）",
+    "maxIdle": 400,
+    "_minIdle": "池里面最少有多少个（池里面的是空闲的）",
+    "minIdle": 20,
+    "_maxWait": "过多少毫秒超时 ",
+    "maxWait": 3000,
+    "testOnBorrow": true
+  }
+]
