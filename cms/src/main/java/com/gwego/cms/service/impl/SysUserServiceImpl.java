@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author liudongxu06
@@ -66,6 +67,16 @@ public class SysUserServiceImpl implements SysUserService{
     @Override
     public void removeRoles(String userId, String... roleIds) {
 
+    }
+
+    @Override
+    public Set<String> findRoles(String account) {
+        return null;
+    }
+
+    @Override
+    public Set<String> findPermission(String account) {
+        return null;
     }
 
     public Result doLogin(String account,String password,boolean rememberMe){

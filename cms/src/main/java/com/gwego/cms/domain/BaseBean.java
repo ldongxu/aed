@@ -12,6 +12,8 @@ import java.util.Map;
  * @date 2018/6/19
  */
 public class BaseBean implements Serializable{
+    public static final String ID = "_id";
+
     @Id
     private String id;
 
