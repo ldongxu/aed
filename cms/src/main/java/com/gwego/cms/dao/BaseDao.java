@@ -1,6 +1,7 @@
 package com.gwego.cms.dao;
 
 import com.gwego.cms.domain.BaseBean;
+import com.mongodb.client.result.UpdateResult;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
@@ -22,12 +23,27 @@ public interface BaseDao<T extends BaseBean> {
 
     List<T> findByQuery(Query query);
 
+    T findOneByQuery(Query query);
+
     void deleteById(String id);
 
-    void update(String id, Map<String,Object> params);
+    UpdateResult upset(T query,T update);
 
+    UpdateResult upset(T update);
 
+    UpdateResult update(String id, Map<String,Object> params);
 
+    UpdateResult update(T updateBean);
+
+    UpdateResult update(T query,T update);
+
+    T findAndModify(T update);
+
+    T findAndModify(T query,T update);
+
+    long count(T query);
+
+    long count(Query query);
 
 
 }
