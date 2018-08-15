@@ -3,6 +3,7 @@ package com.gwego.cms.dao;
 import com.gwego.cms.domain.BaseBean;
 import com.gwego.exception.ParamException;
 import com.gwego.util.JsonUtil;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -69,9 +70,9 @@ public abstract class AbstractBaseDao<T extends BaseBean> implements BaseDao<T> 
     }
 
     @Override
-    public void deleteById(String id) {
+    public DeleteResult deleteById(String id) {
         Query query = Query.query(Criteria.where(BaseBean.ID).is(id));
-        mongoTemplate.remove(query);
+        return mongoTemplate.remove(query);
     }
 
     @Override

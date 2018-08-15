@@ -1,6 +1,7 @@
 package com.gwego.cms.dao;
 
 import com.gwego.cms.domain.BaseBean;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.springframework.data.mongodb.core.query.Query;
 
@@ -25,7 +26,7 @@ public interface BaseDao<T extends BaseBean> {
 
     T findOneByQuery(Query query);
 
-    void deleteById(String id);
+    DeleteResult deleteById(String id);
 
     UpdateResult upset(T query,T update);
 

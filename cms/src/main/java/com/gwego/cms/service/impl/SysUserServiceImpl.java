@@ -1,6 +1,7 @@
 package com.gwego.cms.service.impl;
 
 import com.gwego.bean.Result;
+import com.gwego.cms.dao.SysUserDao;
 import com.gwego.cms.domain.SysUser;
 import com.gwego.cms.service.SysUserService;
 import com.gwego.cms.shiro.MyShiroRealm;
@@ -16,6 +17,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,7 +29,7 @@ import java.util.Set;
 public class SysUserServiceImpl implements SysUserService{
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    private SysUserDao sysUserDao;
     @Autowired
     private MyShiroRealm myShiroRealm;
 
@@ -40,18 +43,18 @@ public class SysUserServiceImpl implements SysUserService{
         sysUser.setCreateTime(new Date());
         sysUser.setStatus(Constants.STATUS_ON);
         ValidationUtil.validate(sysUser);
-        mongoTemplate.insert(sysUser);
+        sysUserDao.insert(sysUser);
 
     }
 
     public SysUser findByAccount(String account){
         Query query = Query.query(Criteria.where("account").is(account));
-        return mongoTemplate.findOne(query,SysUser.class);
+        return sysUserDao.findOneByQuery(query);
     }
 
     @Override
     public SysUser findById(String userId) {
-        return null;
+        return sysUserDao.findById(userId);
     }
 
     @Override
@@ -71,7 +74,9 @@ public class SysUserServiceImpl implements SysUserService{
 
     @Override
     public Set<String> findRoles(String account) {
-        return null;
+        SysUser user = findByAccount(account);
+        List<String> roles = user.getRoleIds();
+        return new HashSet<>(roles);
     }
 
     @Override

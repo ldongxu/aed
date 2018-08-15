@@ -1,0 +1,91 @@
+.header{
+    height: 68px;
+    background-color: #fff;
+    position: relative;
+    z-index: 90;
+}
+.header-wrap{
+    width: 1000px;
+    height: 68px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    display: flex;
+}
+.header-logo{
+    float: left;
+    padding: 16px 0 13px;
+    width: 136px;
+    height: 39px;
+    position: relative;
+}
+.header-logo .g-logo{
+    display: block;
+    height: 30px;
+    background: url(../image/logo.jpg) no-repeat 0 0;
+    background-size:cover;
+    position: relative;
+}
+.header-nav{
+    flex: 1;
+    float: left;
+    display: inline;
+    padding: 0 10px 0 25px;
+    line-height: 68px;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+    z-index: 5;
+}
+.header-nav .nav{
+    display: inline-block;
+}
+.header-nav li a {
+    display: inline-block;
+    padding: 0 16px;
+    color: #333;
+    vertical-align: top;
+    overflow: hidden;
+}
+.banner{
+    position: relative;
+    z-index: 20;
+    margin-bottom: 20px;
+    clear: both;
+}
+.show-slider{
+    position: relative;
+    overflow: hidden;
+    background-color: #f1f4f5;
+}
+.show-img{
+
+}
+.show-slider .show-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+}
+.sign{
+    float: right;
+    padding: 21px 0;
+    height: 26px;
+    line-height: 26px;
+    color: #c9c9c9;
+    text-align: right;
+}
+.sign .split {
+    display: inline-block;
+    margin: 0 10px;
+    width: 1px;
+    height: 14px;
+    background-color: #c9c9c9;
+    overflow: hidden;
+    vertical-align: -2px;
+}
