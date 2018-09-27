@@ -27,3 +27,6 @@ hs_err_pid*
 /cms/.mvn/
 /cms/mvnw.cmd
 /cms/mvnw
+/cms/cms.iml
+/core/core.iml
+/.idea/
