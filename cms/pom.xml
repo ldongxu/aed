@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gwego</groupId>
+	<groupId>com.aed</groupId>
 	<artifactId>cms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -30,9 +30,9 @@
 			<id>local</id>
 			<properties>
 				<mongo-basic-address>127.0.0.1:27017</mongo-basic-address>
-				<mongo-basic-user>gwego</mongo-basic-user>
+				<mongo-basic-user>aed</mongo-basic-user>
 				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
-				<mongo-basic-dbname>basic</mongo-basic-dbname>
+				<mongo-basic-dbname>aedDB</mongo-basic-dbname>
 
 				<redis-host>127.0.0.1</redis-host>
 				<redis-port>6379</redis-port>
@@ -46,9 +46,9 @@
 			<id>release</id>
 			<properties>
 				<mongo-basic-address>127.0.0.1:27017</mongo-basic-address>
-				<mongo-basic-user>gwego</mongo-basic-user>
+				<mongo-basic-user>aed</mongo-basic-user>
 				<mongo-basic-pwd>xyz123</mongo-basic-pwd>
-				<mongo-basic-dbname>basic</mongo-basic-dbname>
+				<mongo-basic-dbname>aedDB</mongo-basic-dbname>
 
 				<redis-host>127.0.0.1</redis-host>
 				<redis-port>6379</redis-port>
@@ -58,7 +58,7 @@
 	</profiles>
 	<dependencies>
 		<dependency>
-			<groupId>com.gwego</groupId>
+			<groupId>com.aed</groupId>
 			<artifactId>core</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
@@ -79,16 +79,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring</artifactId>
-			<version>1.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.crazycake</groupId>
-			<artifactId>shiro-redis</artifactId>
-			<version>3.1.0</version>
 		</dependency>
 
 
