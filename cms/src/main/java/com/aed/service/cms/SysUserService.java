@@ -3,6 +3,8 @@ package com.aed.service.cms;
 import com.aed.core.bean.Result;
 import com.aed.domain.SysUser;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Set;
 
 /**
@@ -10,22 +12,15 @@ import java.util.Set;
  * @date 2018/8/2
  */
 public interface SysUserService {
-    void registerSysUser(String account, String password);
+    void registerSysUser(String userName, String password);
 
-    Result doLogin(String account, String password, boolean rememberMe);
+    Result doLogin(HttpSession session, String userName, String password);
 
-    SysUser findByAccount(String account);
+    SysUser findByUserName(String userName);
 
-    SysUser findById(String userId);
+    SysUser findById(String id);
 
-    void changePassword(String userId, String newPassword);
+    void changePassword(String id, String newPassword);
 
-    void addRoles(String userId, String... roleIds);
-
-    void removeRoles(String userId, String... roleIds);
-
-    Set<String> findRoles(String account);
-
-    Set<String> findPermission(String account);
 
 }

@@ -4,6 +4,7 @@ package com.aed.core.util;
 import org.apache.commons.collections.CollectionUtils;
 
 import javax.validation.ConstraintViolation;
+import javax.validation.UnexpectedTypeException;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.groups.Default;
@@ -24,7 +25,7 @@ public class ValidationUtil {
                 sb.append(c.getMessage());
                 sb.append("\n");
             }
-            throw new RuntimeException(sb.toString());
+            throw new UnexpectedTypeException(sb.toString());
         }
     }
 

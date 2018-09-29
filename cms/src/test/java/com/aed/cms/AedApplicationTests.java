@@ -1,5 +1,6 @@
-package com.aed.core.cms;
+package com.aed.cms;
 
+import com.aed.core.util.CipherUtil;
 import com.aed.domain.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,10 +20,8 @@ public class AedApplicationTests {
 	@Test
 	public void contextLoads() {
 		SysUser sysUser = new SysUser();
-		sysUser.setAccount("test");
-		sysUser.setMobile("1862345");
-		sysUser.setPassword("123456");
-		sysUser.setUserName("test");
+		sysUser.setUserName("admin");
+		sysUser.setPassword(CipherUtil.generatePassword("123456"));
 		sysUser.setStatus(Byte.valueOf("1"));
 		sysUser.setCreateTime(new Date());
 		mongoTemplate.insert(sysUser);

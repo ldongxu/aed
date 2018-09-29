@@ -6,7 +6,10 @@ package com.aed.core.bean;
  */
 public enum ResponseErrorEnum {
     NORMAl(0,"ok"),
-    ILLEGAL_PARAMS(100,"参数错误");
+    ILLEGAL_PARAMS(100,"参数错误"),
+    CMS_LOGINED(200,"管理员用户已登陆"),
+    ILLEGAL_CMS_LOGIN_PARAMS(201,"管理员登陆账号或密码错误"),
+    NOT_EXIST_CMS_USER(202,"管理员账号不存在");
 
     private Integer errcode;
     private String msg;
