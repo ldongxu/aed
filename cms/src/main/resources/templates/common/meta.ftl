@@ -1,5 +1,5 @@
 <#assign staticPath = "${request.contextPath}/static">
-
+<#assign baseUrl=request.contextPath>
 <!-- Global stylesheets -->
 <#--<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">-->
 	<link href="${staticPath}/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">

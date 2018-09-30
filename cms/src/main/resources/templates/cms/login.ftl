@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">登陆 <i class="icon-circle-right2 position-right"></i></button>
+                            <button id="submit" type="button" class="btn btn-primary btn-block">登陆 <i class="icon-circle-right2 position-right"></i></button>
                         </div>
 
                     </div>
@@ -64,16 +64,19 @@
 <script type="text/javascript" src="${staticPath}/js/jquery-serializeObject.js"></script>
 
 <script>
-    $('#loginForm').submit(function () {
-        $.post("/cms/dologin",$('#loginForm').serializeObject(),function (result) {
-            if (result!=null && result.errcode==0){
+    $('#submit').click(function () {
+        $.post('${baseUrl}/cms/dologin',$('#loginForm').serializeObject(),function (result,state) {
+            if (result!=null && (result.errcode==0 || result.errcode==200)){
                 window.location.href='/cms/index';
             }else if(result!=null){
                 alert(result.msg);
             }else {
                 alert("登陆异常！");
             }
-        })
+        });
+
     });
+
+
 </script>
 </html>

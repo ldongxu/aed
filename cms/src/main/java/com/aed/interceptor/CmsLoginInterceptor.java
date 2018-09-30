@@ -32,7 +32,11 @@ public class CmsLoginInterceptor extends HandlerInterceptorAdapter{
             }
             return true;
         }else {
-            return uri.startsWith("/cms/login") || uri.startsWith("/cms/dologin");
+            if (uri.startsWith("/cms/login") || uri.startsWith("/cms/dologin")){
+                return true;
+            }
+            response.sendRedirect(request.getContextPath()+"/cms/login");
+            return false;
         }
     }
 
