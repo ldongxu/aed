@@ -1,5 +1,7 @@
 package com.aed.domain;
 
+import java.util.Date;
+
 /**
  * @author liudongxu06
  * @date 2018/9/29
@@ -11,6 +13,7 @@ public class AppUser extends BaseBean {
     private String name;
     private String email;
     private String address;
+    private Date createTime;
 
     public String getMobile() {
         return mobile;
@@ -58,5 +61,13 @@ public class AppUser extends BaseBean {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -57,6 +57,7 @@
 
         <!-- Main content -->
         <div class="content-wrapper">
+            <div class="fixed-table-toolbar"><div class="pull-left search"><input class="form-control" type="text" placeholder="搜索"></div></div>
             <table id="table"></table>
         </div>
         <!-- /main content -->
@@ -77,38 +78,62 @@
     function initTable() {
         $table.bootstrapTable({
             cache: false,
-            search:true,
-            pagination:true,
-            uniqueId:'id',
+            // search: true,
+            pagination: true,
+            uniqueId: 'id',
             queryParams: queryParams,
-            pageNumber:1,
+            // responseHandler:responseHandler,
+            pageNumber: 1,
             pageSize: 10,
-            pageList: [10,20,50],
-            url: 'data1.json',
+            pageList: [10, 20, 50],
+            url: '/cms/userList',
+            responseHandler:function (res) {
+                return res.data;
+            },
             columns: [{
-                field: 'id',
-                title: 'Item ID'
+                field: 'mobile',
+                title: '账号'
             }, {
                 field: 'name',
-                title: 'Item Name'
+                title: '姓名'
             }, {
-                field: 'price',
-                title: 'Item Price'
-            },]
+                field: 'company',
+                title: '公司'
+            }, {
+                field: 'email',
+                title: '邮箱'
+            }, {
+                field: 'address',
+                title: '地址'
+            }
+            ]
         });
     }
 
     function queryParams(params) {
         var param = {
-            userName: $.trim($("#userName").val()),
-            realName: $.trim($("#realName").val()),
-            startDate: $.trim($("#startDate").val()),
-            endDate: $.trim($("#endDate").val()),
-            roleId:$.trim($("#roleId").val()),
-            curPage : this.pageNumber,
-            pageSize : this.pageSize
-        }
+            // mobile: $.trim($("#mobile").val()),
+            page: this.pageNumber,
+            size: this.pageSize
+        };
         return param;
     }
+    function responseHandler(result) {
+        if (result) {
+            var res=result;
+            return {
+                "rows" : res.rows,
+                "total" : res.total,
+            };
+        } else {
+            return {
+                "rows" : [],
+                "total" : 0
+            };
+        }
+    }
+    $(function () {
+        initTable();
+    })
 </script>
 </html>
