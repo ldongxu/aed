@@ -86,6 +86,8 @@
             pageNumber: 1,
             pageSize: 10,
             pageList: [10, 20, 50],
+            sidePagination:'server',
+            dataType : 'json',
             url: '/cms/userList',
             responseHandler:function (res) {
                 return res.data;
