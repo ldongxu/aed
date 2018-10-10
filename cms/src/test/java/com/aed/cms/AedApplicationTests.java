@@ -2,6 +2,7 @@ package com.aed.cms;
 
 import com.aed.AedApplication;
 import com.aed.core.util.CipherUtil;
+import com.aed.domain.AppUser;
 import com.aed.domain.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +21,15 @@ public class AedApplicationTests {
 
 	@Test
 	public void contextLoads() {
-
+		AppUser appUser=new AppUser();
+		appUser.setName("testUser");
+		appUser.setMobile("18601067683");
+		appUser.setEmail("test@126.com");
+		appUser.setPwd(CipherUtil.generatePassword("123456"));
+		appUser.setCompany("test公司");
+		appUser.setAddress("北京");
+		appUser.setCreateTime(new Date());
+		mongoTemplate.insert(appUser);
 	}
 
 }

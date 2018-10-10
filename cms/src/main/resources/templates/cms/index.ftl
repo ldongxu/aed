@@ -8,31 +8,7 @@
 
 </head>
 <body>
-<!-- Main navbar -->
-<div class="navbar navbar-inverse">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="${baseUrl}/cms/index"><img src="${staticPath}/assets/images/logo_light.png"
-                                                                 alt=""></a>
-    </div>
-
-    <div class="navbar-collapse collapse" id="navbar-mobile">
-
-        <div class="navbar-right">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="${baseUrl}/cms/logout" class="dropdown-toggle">
-                        <i class="glyphicon glyphicon-log-out"></i>
-                        <span class="position-right">退出</span>
-                    </a>
-                </li>
-
-
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- /main navbar -->
-
+<#include "../common/navbar.ftl"/>
 
 <!-- Page container -->
 <div class="page-container">
@@ -40,24 +16,14 @@
     <!-- Page content -->
     <div class="page-content">
 
-        <!-- Main sidebar -->
-        <div class="sidebar sidebar-main">
-            <div class="sidebar-content">
-                <ul class="navigation navigation-main navigation-accordion">
-                    <!-- Main -->
-                    <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-user"></i> <span>用户信息</span></a></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-list"></i> <span>已处理订单</span></a></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-folder-open"></i> <span>批量生成激活码</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /main sidebar -->
+       <#include "../common/sidebar.ftl"/>
 
         <!-- Main content -->
         <div class="content-wrapper">
-            <div class="fixed-table-toolbar"><div class="pull-left search"><input class="form-control" type="text" placeholder="搜索"></div></div>
+            <div class="fixed-table-toolbar">
+                <div class="pull-left search"><input id="search-input" class="form-control" type="text" placeholder="输入账号搜索"></div>
+                <div class="pull-left search"><button id="search" type="button" class="btn btn-primary">搜索</button></div>
+            </div>
             <table id="table"></table>
         </div>
         <!-- /main content -->
@@ -112,9 +78,9 @@
         });
     }
 
-    function queryParams(params) {
+    function queryParams() {
         var param = {
-            // mobile: $.trim($("#mobile").val()),
+            mobile: $.trim($("#search-input").val()),
             page: this.pageNumber,
             size: this.pageSize
         };
@@ -136,6 +102,9 @@
     }
     $(function () {
         initTable();
+        $('#search').click(function () {
+            $table.bootstrapTable(('refresh'));
+        });
     })
 </script>
 </html>
