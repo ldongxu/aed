@@ -29,7 +29,7 @@ public class ActiveCodeController {
     @RequestMapping(value = "/generateCode",method = RequestMethod.POST)
     @ResponseBody
     public Result generateCode(String mobile,int num){
-        int s = activeCodeService.generateCode(mobile,num);
+       Result result = activeCodeService.generateCode(mobile,num);
         return Result.buildOkWithData(null);
     }
 
