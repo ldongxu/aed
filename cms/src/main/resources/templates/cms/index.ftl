@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
-       <#include "../common/meta.ftl"/>
+       <#include "common/meta.ftl"/>
     <link href="${staticPath}/css/bootstrap-table.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<#include "../common/navbar.ftl"/>
+<#include "common/navbar.ftl"/>
 
 <!-- Page container -->
 <div class="page-container">
@@ -16,7 +16,7 @@
     <!-- Page content -->
     <div class="page-content">
 
-       <#include "../common/sidebar.ftl"/>
+       <#include "common/sidebar.ftl"/>
 
         <!-- Main content -->
         <div class="content-wrapper">
@@ -48,7 +48,6 @@
             pagination: true,
             uniqueId: 'id',
             queryParams: queryParams,
-            // responseHandler:responseHandler,
             pageNumber: 1,
             pageSize: 10,
             pageList: [10, 20, 50],
@@ -56,6 +55,9 @@
             dataType : 'json',
             url: '/cms/userList',
             responseHandler:function (res) {
+                if (res!=null && res.errcode!=0) {
+                    alert(res.msg)
+                }
                 return res.data;
             },
             columns: [{
@@ -86,20 +88,7 @@
         };
         return param;
     }
-    function responseHandler(result) {
-        if (result) {
-            var res=result;
-            return {
-                "rows" : res.rows,
-                "total" : res.total,
-            };
-        } else {
-            return {
-                "rows" : [],
-                "total" : 0
-            };
-        }
-    }
+
     $(function () {
         initTable();
         $('#search').click(function () {

@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +43,11 @@ public abstract class AbstractBaseDao<T extends BaseBean> implements BaseDao<T> 
     }
 
     @Override
+    public void insertAll(Collection<?> objectsToSave) {
+        mongoTemplate.insertAll(objectsToSave);
+    }
+
+    @Override
     public T findById(String id) {
         return mongoTemplate.findById(id, getClazz());
     }
@@ -52,8 +58,8 @@ public abstract class AbstractBaseDao<T extends BaseBean> implements BaseDao<T> 
     }
 
     @Override
-    public List<T> findList(int skip, int limit) {
-        Query query = new Query();
+    public List<T> findList(Query query,int skip, int limit) {
+        query = query==null?new Query():query;
         query.with(new Sort(Sort.Direction.ASC, BaseBean.ID));
         query.skip(skip).limit(limit);
         return mongoTemplate.find(query, getClazz());

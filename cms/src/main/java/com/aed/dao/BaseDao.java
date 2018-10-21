@@ -5,6 +5,7 @@ import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.springframework.data.mongodb.core.query.Query;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -16,11 +17,13 @@ public interface BaseDao<T extends BaseBean> {
 
     void insert(T t);
 
+    void insertAll(Collection<? extends Object> objectsToSave);
+
     T findById(String id);
 
     List<T> findAll();
 
-    List<T> findList(int skip,int limit);
+    List<T> findList(Query query,int skip,int limit);
 
     List<T> findByQuery(Query query);
 

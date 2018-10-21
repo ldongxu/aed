@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
-       <#include "../common/meta.ftl"/>
+       <#include "common/meta.ftl"/>
     <link href="${staticPath}/css/bootstrap-table.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-<#include "../common/navbar.ftl"/>
+<#include "common/navbar.ftl"/>
 
 <!-- Page container -->
 <div class="page-container">
@@ -16,7 +16,7 @@
     <!-- Page content -->
     <div class="page-content">
 
-       <#include "../common/sidebar.ftl"/>
+       <#include "common/sidebar.ftl"/>
 
         <!-- Main content -->
         <div class="content-wrapper">
@@ -53,28 +53,38 @@
             pagination: true,
             uniqueId: 'id',
             queryParams: queryParams,
-            // responseHandler:responseHandler,
             pageNumber: 1,
             pageSize: 10,
             pageList: [10, 20, 50],
             sidePagination:'server',
             dataType : 'json',
-            url: '/cms/userList',
+            url: '/cms/getCode',
             responseHandler:function (res) {
+                if (res!=null && res.errcode!=0) {
+                    alert(res.msg)
+                }
                 return res.data;
             },
             columns: [{
-                field: 'mobile',
+                field: 'account',
                 title: '账号'
             }, {
                 field: 'code',
                 title: '激活码'
             }, {
-                field: 'createTime',
+                field: 'extMap.createTimeStr',
                 title: '生成时间'
             }, {
                 field: 'status',
-                title: '激活状态'
+                title: '激活状态',
+                formatter : function (value,row,index) {
+                    if (value==0){
+                        return "<span style='color: #FF5722'>未激活</span>";
+                    }
+                    if (value==1){
+                        return "<span style='color: #4CAF50'>已激活</span>";
+                    }
+                }
             }
             ]
         });
@@ -94,6 +104,10 @@
             var account = $('#input-mobile').val();
             var num = $('#input-num').val();
             $.post('/cms/generateCode',{"mobile":account,"num":num},function (result) {
+                if (result!=null && result.errcode!=0){
+                    alert(result.msg);
+                }
+                $table.bootstrapTable('destroy');
                 initTable();
             })
         });

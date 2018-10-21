@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <#include "../common/meta.ftl"/>
+   <#include "common/meta.ftl"/>
 </head>
 
 <body class="login-container">
