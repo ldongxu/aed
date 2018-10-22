@@ -31,7 +31,7 @@ public class ActiveCodeServiceImpl implements ActiveCodeService {
     @Override
     public Result generateCode(String mobile, int num) {
         AppUser appUser = appUserDao.findByMobile(mobile);
-        if (appUser == null) return Result.buildFail(ResponseErrorEnum.NOT_EXIS_APP_USER);
+        if (appUser == null) return Result.buildFail(ResponseErrorEnum.NOT_EXIST_APP_USER);
         Set<String> codes = new HashSet<>();
         randomNotRepeat(num, codes);
         List<ActiveCode> activeCodeList = codes.stream().map(s -> {

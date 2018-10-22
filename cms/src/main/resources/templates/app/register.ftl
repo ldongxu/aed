@@ -60,7 +60,7 @@
                                                 <div class="form-control-feedback">
                                                     <i class="icon-mobile text-muted"></i>
                                                 </div>
-                                                <input type="text" id="mobile" name="mobile" class="form-control" placeholder="手机号" required>
+                                                <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="手机号" required>
                                             </div>
                                         </div>
                                     </div>
@@ -82,11 +82,11 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
+                                                <div class="form-control-feedback">
+                                                    <i class="icon-user-lock text-muted"></i>
+                                                </div>
                                                 <input type="password" name="pwd" class="form-control"
-                                                       placeholder="设置密码">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-user-lock text-muted"></i>
-                                                </div>
+                                                       placeholder="设置密码" required>
                                             </div>
                                         </div>
 
@@ -95,11 +95,11 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
+                                                <div class="form-control-feedback">
+                                                    <i class="icon-user-lock text-muted"></i>
+                                                </div>
                                                 <input type="password" name="pwdRepeat" class="form-control"
-                                                       placeholder="重复密码">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-user-lock text-muted"></i>
-                                                </div>
+                                                       placeholder="重复密码" required>
                                             </div>
                                         </div>
                                     </div>
@@ -108,38 +108,37 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
-                                                <input type="text" name="company" class="form-control" placeholder="企业名称">
                                                 <div class="form-control-feedback">
                                                     <i class="icon-newspaper text-muted"></i>
                                                 </div>
+                                                <input type="text" name="company" class="form-control" placeholder="企业名称" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
-                                                <input type="text" name="name" class="form-control" placeholder="联系人">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-people text-muted"></i></div>
+                                                <div class="form-control-feedback"><i class="icon-people text-muted"></i></div>
+                                                <input type="text" name="name" class="form-control" placeholder="联系人" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
-                                                <input type="email" name="email" class="form-control" placeholder="邮箱">
                                                 <div class="form-control-feedback">
                                                     <i class="icon-mention text-muted"></i>
                                                 </div>
+                                                <input type="email" name="email" class="form-control"
+                                                       placeholder="邮箱" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group has-feedback">
-                                                <input type="email" name="address" class="form-control" placeholder="联系地址">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-location4 text-muted"></i></div>
+                                                <div class="form-control-feedback"><i class="icon-location4 text-muted"></i></div>
+                                                <input type="text" name="address" class="form-control" placeholder="联系地址" required>
                                             </div>
                                         </div>
                                     </div>
@@ -173,6 +172,7 @@
 </body>
 <script type="text/javascript" src="${staticPath}/js/jquery-validate/jquery.validate.min.js"></script>
 <script type="text/javascript" src="${staticPath}/js/jquery-validate/localization/messages_zh.js"></script>
+<script type="text/javascript" src="${staticPath}/js/jquery-serializeObject.js"></script>
 
 <script>
  $(function () {
@@ -182,11 +182,11 @@
      });
 
      $('#btn-register').click(function () {
-
          $("#form-register").valid();
-         // $.post('',{},function (result) {
-         //     console(result);
-         // })
+         var obj = $("#form-register").serializeObject();
+         $.post('${baseUrl}/app/doRegister',obj,function (result) {
+             console.log(result);
+         })
      });
  })
     

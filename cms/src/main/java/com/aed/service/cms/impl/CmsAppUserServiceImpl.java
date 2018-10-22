@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2018/10/8
  */
 @Service
-public class CmsAppUserServiceImpl implements CmsAppUserService{
+public class CmsAppUserServiceImpl implements CmsAppUserService {
     @Autowired
     private AppUserDao appUserDao;
 

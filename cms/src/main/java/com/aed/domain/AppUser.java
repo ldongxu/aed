@@ -1,5 +1,6 @@
 package com.aed.domain;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -7,13 +8,20 @@ import java.util.Date;
  * @date 2018/9/29
  */
 public class AppUser extends BaseBean {
+    @NotBlank
     private String mobile;
+    @NotBlank
     private String pwd;
+    @NotBlank
     private String company;
+    @NotBlank
     private String name;
+    @NotBlank
     private String email;
+    @NotBlank
     private String address;
     private Date createTime;
+    private Date updateTime;
 
     public String getMobile() {
         return mobile;
@@ -69,5 +77,13 @@ public class AppUser extends BaseBean {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

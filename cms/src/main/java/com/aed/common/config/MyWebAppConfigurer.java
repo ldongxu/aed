@@ -15,6 +15,6 @@ public class MyWebAppConfigurer implements WebMvcConfigurer{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CmsLoginInterceptor()).addPathPatterns("/cms/**");
-        registry.addInterceptor(new AppLoginInterceptor()).addPathPatterns("/cgi/**");
+        registry.addInterceptor(new AppLoginInterceptor()).addPathPatterns("/app/**");
     }
 }
